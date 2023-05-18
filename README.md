@@ -1,0 +1,7 @@
+
+## Tal classe simula a geração de um relatório que precisará acessar nosso Singleton Config também. Agora temos dois serviços REST disponíveis: /config e /relatorio. Acesse os métodos nos dois e informe qual o problema ocorrido com a alteração do código do updateConfig.
+
+
+O padrão Singleton é um design pattern que restringe a criação de instâncias de uma classe a apenas uma única instância e fornece um ponto de acesso global para essa instância. Ao utilizar o padrão Singleton, é garantido que apenas uma instância da classe seja criada durante a execução do programa. Qualquer tentativa de instanciar a classe mais de uma vez resultará na obtenção da mesma instância já existente. Isso ocorre porque o construtor da classe é privado e, portanto, não pode ser chamado fora da própria classe.
+
+No contexto específico em que se observa a situação, ao acessar o endereço http://localhost:8080/config, obtém-se o retorno: {"formatoRelatorio":"png","tipoGrafico":"linhas"}. E ao acessar o endereço http://localhost:8080/relatorio, obtém-se o retorno: {"formatoRelatorio":"html","tipoGrafico":"pizza"}. Esses acessos revelam que a classe em questão está sendo instanciada mais de uma vez, o que é indesejado de acordo com o padrão Singleton.
